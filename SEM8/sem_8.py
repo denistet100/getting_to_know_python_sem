@@ -82,7 +82,7 @@ def menu():
 
 def open_read_dir():
     dict_phnbk = {}
-    with open('phonebook.txt', 'r') as f:
+    with open('phonebook.txt', 'r', encoding='UTF-8') as f:
         for line_cntc in f.read().splitlines():
             key, value = line_cntc.split(':')
             pattern = r'\'{1}\w+\'{1}'
@@ -97,7 +97,7 @@ def save_dir(dict_phnbk):
     if len(dict_phnbk) != 0:
         for key, value in dict_phnbk.items():
             str_phnbk += f'{key}:{value}\n'
-        with open('phonebook.txt', 'w') as f:
+        with open('phonebook.txt', 'w', encoding='UTF-8') as f:
             f.write(str_phnbk)
         print('save')
     else:
